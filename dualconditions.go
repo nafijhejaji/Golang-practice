@@ -3,12 +3,12 @@ package main
 import "fmt"
 
 func main() {
-	age := 20
+	age := 30
 	sex := "male"
-	sex2 := "female"
-	if age == 20 && sex == "male" {
+	sex = "female"
+	if age == 20 && sex == "female" {
 		fmt.Println("You can get married!")
-	} else if age == 20 || sex2 == "female" {
+	} else if age > 25 || sex == "male" {
 
 		fmt.Println("your age is over")
 	}
