@@ -12,7 +12,7 @@ func summation2(type1 float64, type2 float64) {
 
 }
 
-//in this summation function , if we want to use same datatype like float and float or int and int then we can use this function. But if we want to use int and float64 then we need to transform the int into float using floa64() function.
+//in this summation function , if we want to use same datatype like float and float or int and int then we can use this function. But if we want to use int and float64 then we need to transform the int into float using float64() function.
 
 func main() {
 	x := 15
