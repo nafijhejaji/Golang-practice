@@ -3,15 +3,13 @@ package main
 import "fmt"
 
 func main() {
-
-	age := 20
+	age := 30
 
 	if age > 18 {
-		fmt.Println("You are ready to go!")
-	} else if age == 18 {
-		fmt.Println("You are almost ready to go!")
+		fmt.Println("you are adult")
+	} else if age < 18 {
+		fmt.Println("you are a kid")
 	} else {
-		fmt.Println("you are a child!")
+		fmt.Println("you are 30 years old")
 	}
-
 }

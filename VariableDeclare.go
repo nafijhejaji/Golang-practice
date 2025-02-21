@@ -27,6 +27,11 @@ func main() {
 	x := 100 // here we have declared a variable x and assigned a value of 100 to it
 	x = 50   //we cant use (:) when we are assigning the value of a same variable the second time
 
+	/*z:= true
+	z = "hello world"
+	*/
+	//here we can't assign a value of a different data type to a variable which is already declared with a different data type
+
 	//but we must need to use the same data type of variable when we are assigning the value of a same variable the second time
 
 	//here we didn't declare the type of variable x but go will automatically infer the type of variable x as int

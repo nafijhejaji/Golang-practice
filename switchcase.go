@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func main() {
+func main1() {
 
 	a := 20
 	switch a {
@@ -13,4 +13,8 @@ func main() {
 	default:
 		fmt.Println("Neither case 1 nor case 2")
 	}
+}
+
+func main() {
+	main1()
 }
