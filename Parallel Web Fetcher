@@ -1,0 +1,59 @@
+package main
+
+import (
+	"fmt"
+	"io/ioutil"
+	"net/http"
+	"time"
+)
+
+// Result struct holds the fetched URL and its size
+type Result struct {
+	URL  string
+	Size int
+	Err  error
+}
+
+// fetch downloads the content of a URL
+func fetch(url string, ch chan<- Result) {
+	start := time.Now()
+
+	resp, err := http.Get(url)
+	if err != nil {
+		ch <- Result{URL: url, Err: err}
+		return
+	}
+	defer resp.Body.Close()
+
+	body, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		ch <- Result{URL: url, Err: err}
+		return
+	}
+
+	secs := time.Since(start).Seconds()
+	ch <- Result{URL: fmt.Sprintf("%s (%.2fs)", url, secs), Size: len(body)}
+}
+
+func main() {
+	urls := []string{
+		"https://golang.org",
+		"https://example.com",
+		"https://httpbin.org/get",
+	}
+
+	ch := make(chan Result)
+
+	for _, url := range urls {
+		go fetch(url, ch) // start a goroutine for each
+	}
+
+	for range urls {
+		res := <-ch
+		if res.Err != nil {
+			fmt.Printf("Error fetching %s: %v\n", res.URL, res.Err)
+			continue
+		}
+		fmt.Printf("%-30s %7d bytes\n", res.URL, res.Size)
+	}
+}
