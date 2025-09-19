@@ -1,0 +1,21 @@
+package main
+
+import "fmt"
+
+// Simple function
+func add(a int, b int) int {
+	return a + b
+}
+
+// Function with multiple return values
+func swap(x, y string) (string, string) {
+	return y, x
+}
+
+func main() {
+	result := add(5, 3)
+	fmt.Println("Result of add:", result)
+
+	a, b := swap("hello", "world")
+	fmt.Println("Swapped values:", a, b)
+}
