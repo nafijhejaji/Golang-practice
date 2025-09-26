@@ -1,0 +1,39 @@
+package main
+
+import "fmt"
+
+// Function to add two numbers
+func add(a int, b int) int {
+    return a + b
+}
+
+func main() {
+    // Variables
+    var name string = "Go Learner"
+    age := 20 // shorthand for declaring and assigning
+
+    fmt.Println("Hello,", name)
+    fmt.Println("Age:", age)
+
+    // Conditional
+    if age >= 18 {
+        fmt.Println("You are an adult.")
+    } else {
+        fmt.Println("You are a minor.")
+    }
+
+    // Loop
+    fmt.Println("Counting 1 to 5:")
+    for i := 1; i <= 5; i++ {
+        fmt.Print(i, " ")
+    }
+    fmt.Println()
+
+    // Array
+    numbers := [5]int{1, 2, 3, 4, 5}
+    fmt.Println("Array elements:", numbers)
+
+    // Function call
+    sum := add(10, 15)
+    fmt.Println("Sum of 10 and 15 is:", sum)
+}
